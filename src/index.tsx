@@ -1,15 +1,19 @@
+import './assets/main.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import './assets/main.css';
+import { RecoilRoot } from 'recoil';
 import Home from './pages/Home/Home';
+import Result from './pages/Result/Result';
 
 ReactDOM.render(
-	<BrowserRouter>
-		<Switch>
-			<Route path="/" component={Home} />
-		</Switch>
-	</BrowserRouter>,
+	<RecoilRoot>
+		<BrowserRouter>
+			<Switch>
+				<Route path="/" component={Home} />
+				<Route path="/items" component={Result} />
+			</Switch>
+		</BrowserRouter>
+	</RecoilRoot>,
 	document.getElementById('root'),
 );
