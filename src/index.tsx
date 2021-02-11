@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './assets/main.css';
-import Hello from './components/Hello';
+import Home from './pages/Home/Home';
 
 ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/" component={Hello} />
+			<Route path="/" component={Home} />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById('root'),
