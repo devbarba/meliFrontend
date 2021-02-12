@@ -14,7 +14,6 @@ const Result: React.FC = () => {
 	const searchText = useRecoilValue(getSearchText);
 	const isLoading = useRecoilValue(getIsLoading);
 
-	console.log(process.env)
 	const handleSearch = async () => {
 		try{
 			const { data: searchResponse } = await GetItemByName({ q: searchText ?? 'Auto' });

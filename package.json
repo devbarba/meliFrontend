@@ -43,8 +43,8 @@
 		"prettier": "^2.2.1"
 	},
 	"scripts": {
-		"start:local": "sh -ac '.  ./.env.development; yarn run dev'",
-		"start:heroku": "sh -ac '.  ./.env.production; yarn run dev'",
+		"start:local": "sh -ac '.  ./.env.development; yarn dev'",
+		"start:heroku": "sh -ac '.  ./.env; yarn watch:css && yarn serve -s build'",
 		"dev": "yarn watch:css && react-scripts start",
 		"build": "yarn watch:css && react-scripts build",
 		"test": "react-scripts test",
