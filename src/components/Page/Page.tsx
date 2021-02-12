@@ -1,8 +1,11 @@
 
 import React, { ReactNode } from 'react';
-import BreadCrumb from '../BreadCrumb/BreadCrumb';
-import ContentContainer from '../ContentContainer/ContentContainer';
+import { useRecoilValue } from 'recoil';
+import { getErrorMessage, getIsLoading } from '../../recoil/selectors';
 import Header from '../Header/Header';
+import Error from '../../pages/Error/Error';
+import ContentContainer from '../ContentContainer/ContentContainer';
+import Loading from './Loading';
 
 type PageProps = {
 	content: ReactNode;
@@ -10,6 +13,9 @@ type PageProps = {
 };
 
 const Page: React.FC<PageProps> = ({content, breadCrumb}) => {
+	const errorMessage = useRecoilValue(getErrorMessage);
+	const isLoading = useRecoilValue(getIsLoading);
+
 	return (
 		<>
 			<Header />
@@ -17,7 +23,20 @@ const Page: React.FC<PageProps> = ({content, breadCrumb}) => {
 			{breadCrumb ?? <div className="mt-8" />}
 
 			<ContentContainer>
-				{content}
+				{
+					isLoading
+						?
+							<Loading type="spinningBubbles" color="#FFE600" />
+						:
+							<></>
+				}
+				{
+					!isLoading && !errorMessage
+						?
+							content
+						:
+							<Error />
+				}
 			</ContentContainer>
 		</>
 	);

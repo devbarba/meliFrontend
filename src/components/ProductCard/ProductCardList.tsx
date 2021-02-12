@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { getResult } from '../../recoil/selectors';
-import { ISearchStateInterface } from '../../interfaces/atom.interface';
 import ProductCard from './ProductCard';
+import ProductNotFound from './ProductNotFound';
 
 const ProductCardList: React.FC = () => {
 	const searchResult = useRecoilValue(getResult);
@@ -12,16 +12,18 @@ const ProductCardList: React.FC = () => {
 			{
 				searchResult?.items.length
 					?
-						searchResult.items.map((item) => {
+						searchResult.items.map((item, idx) => {
+							const counter = idx;
 							return(
-								<>
+								<div key={counter}>
 									<ProductCard item={item} />
 									<div className="content-divisor w-full h-px" />
-								</>
+								</div>
 							)
 						})
 					:
-						<></>
+						<ProductNotFound />
+
 			}
 		</>
 	)

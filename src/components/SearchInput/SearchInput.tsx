@@ -5,27 +5,40 @@ import { searchState } from '../../recoil/atoms';
 import { getSearchText } from '../../recoil/selectors';
 import Search1x from '../../assets/images/search.png';
 import Search2x from '../../assets/images/search@2x.png';
+import { ISearchStateInterface } from '../../interfaces/atom.interface';
 
 const SearchInput: React.FC = () => {
 	const history = useHistory();
 	const setSearchContext = useSetRecoilState(searchState);
 	const searchText = useRecoilValue(getSearchText);
 
-	const handleSearchText = (newValue: string) => {
-		setSearchContext((prevState: any) => ({
+	const handleLoading = (newValue: boolean) => {
+		setSearchContext((prevState: ISearchStateInterface) => ({
 			...prevState,
-			isLoading: true,
+			isLoading: newValue
+		}));
+	}
+	const handleSearchText = (newValue: string) => {
+		setSearchContext((prevState: ISearchStateInterface) => ({
+			...prevState,
 			searchText: newValue
 		}));
 	}
 
 	useEffect(() => {
 		const searchParam = history.location?.search;
-		if (searchParam) handleSearchText(searchParam.replace('?search=', ''));
+
+		if (searchParam) {
+			handleLoading(true);
+			handleSearchText(decodeURIComponent(searchParam.replace('?search=', '')));
+		}
 	}, []);
 
 	const handleSearch = () => {
-		if (searchText) history.push(`/items?search=${searchText}`);
+		if (searchText) {
+			handleLoading(true);
+			history.push(`/items?search=${searchText}`);
+		}
 	};
 
 	return (
@@ -36,6 +49,9 @@ const SearchInput: React.FC = () => {
 				value={searchText}
 				onChange={(e: React.FormEvent<HTMLInputElement>) => {
 					handleSearchText(e.currentTarget.value)
+				}}
+				onKeyPress={(event) => {
+					if(event.key === 'Enter') handleSearch();
 				}}
 				placeholder="Nunca dejes de buscar"
 			/>

@@ -1,39 +1,45 @@
 import React, { useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { getSearchText } from '../../recoil/selectors';
-import { searchState } from '../../recoil/atoms';
+import { getIsLoading, getResult, getSearchText } from '../../recoil/selectors';
+import { errorState, searchState } from '../../recoil/atoms';
 import Page from '../../components/Page/Page';
 import ProductCardList from '../../components/ProductCard/ProductCardList';
-import { GetItemByName } from '../../services/search.service';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
+import { GetItemByName } from '../../services/search.service';
+import { ISearchStateInterface } from '../../interfaces/atom.interface';
 
 const Result: React.FC = () => {
+	const setErrorMessage = useSetRecoilState(errorState);
 	const setSearchContext = useSetRecoilState(searchState);
 	const searchText = useRecoilValue(getSearchText);
+	const isLoading = useRecoilValue(getIsLoading);
 
+	console.log(process.env)
 	const handleSearch = async () => {
 		try{
 			const { data: searchResponse } = await GetItemByName({ q: searchText ?? 'Auto' });
 
-			setSearchContext((prevState: any) => ({
+			setSearchContext((prevState: ISearchStateInterface) => ({
 				...prevState,
-				isLoading: true,
+				isLoading: false,
 				result: searchResponse
 			}));
-		} catch(err: unknown) {
-			console.log(err);
+		} catch(err) {
+			setErrorMessage({
+				message: err
+			});
 		}
 	}
 
 	useEffect(() => {
-		handleSearch();
-	}, []);
+		if (isLoading) handleSearch();
+	}, [isLoading]);
 
 	return (
 		<Page
 			breadCrumb={<BreadCrumb />}
 			content={
-				<ProductCardList />
+				!isLoading ? <ProductCardList /> : <></>
 			}
 		/>
 	);

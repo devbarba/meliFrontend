@@ -23,3 +23,10 @@ export const searchState: IAtomSearchStateInterface = atom({
 		},
 	},
 });
+
+export const errorState = atom({
+	key: 'errorState',
+	default: {
+		message: ''
+	},
+});

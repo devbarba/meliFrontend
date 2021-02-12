@@ -17,6 +17,7 @@
 		"eslint-plugin-react-hooks": "^4",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
+		"react-loading": "^2.0.3",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.1",
 		"recoil": "^0.1.2",
@@ -42,7 +43,8 @@
 		"tailwindcss": "^2.0.1"
 	},
 	"scripts": {
-		"start": "yarn watch:css && serve -s build",
+		"start:local": "sh -ac '.  ./.env.development; yarn run dev'",
+		"start:heroku": "sh -ac '.  ./.env.production; yarn run dev'",
 		"dev": "yarn watch:css && react-scripts start",
 		"build": "yarn watch:css && react-scripts build",
 		"test": "react-scripts test",

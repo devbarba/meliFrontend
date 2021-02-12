@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import imageProvisory from '../../assets/images/iphone.webp';
 import Shipping1x from '../../assets/images/shipping.png';
 import Shipping2x from '../../assets/images/shipping@2x.png';
 import { ISearchItemInterface } from '../../interfaces/atom.interface';

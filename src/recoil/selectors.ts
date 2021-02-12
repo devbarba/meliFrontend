@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import { searchState } from './atoms';
+import { errorState, searchState } from './atoms';
 import { ISearchStateInterface } from '../interfaces/atom.interface';
 
 export const getSearchText = selector({
@@ -31,5 +31,13 @@ export const getIsLoading = selector({
 	get: ({ get }) => {
 		const search: ISearchStateInterface = get(searchState);
 		return search.isLoading;
+	},
+});
+
+export const getErrorMessage = selector({
+	key: 'getErrorMessage',
+	get: ({ get }) => {
+		const error = get(errorState);
+		return error.message;
 	},
 });
