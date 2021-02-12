@@ -7,7 +7,7 @@ const BreadCrumb: React.FC = () => {
 	const categoriesLength = searchResult?.categories.length;
 
 	return (
-		<div className="content-container flex w-9/12 px-0 mx-auto justify-start my-4">
+		<div className="breadcrumb-container content-container flex w-9/12 px-0 mx-auto justify-start my-4">
 			{
 				categoriesLength
 					?

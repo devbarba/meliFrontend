@@ -88,6 +88,28 @@ body{
   color: #999999;
 }
 
+@media(max-width:768px) {
+  /* Content Result */
+
+  .content-container{
+    margin-top: 2rem;
+  }
+
+  .product-details{
+    width: 100%;
+  }
+
+  .card-address{
+    display: none;
+  }
+
+  /* Breadcrumb */
+
+  .breadcrumb-container{
+    display: none !important;
+  }
+}
+
 /* ! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
