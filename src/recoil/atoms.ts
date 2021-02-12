@@ -6,7 +6,20 @@ export const searchState: IAtomSearchStateInterface = atom({
 	default: {
 		isLoading: false,
 		searchText: '',
-		result: {},
-		item: {},
+		result: {
+			author: {
+				name: '',
+				lastname: '',
+			},
+			categories: [],
+			items: []
+		},
+		item: {
+			author: {
+				name: '',
+				lastname: '',
+			},
+			item: {},
+		},
 	},
 });

@@ -10,7 +10,7 @@ ReactDOM.render(
 	<RecoilRoot>
 		<BrowserRouter>
 			<Switch>
-				<Route path="/" component={Home} />
+				<Route path="/" exact={true} component={Home} />
 				<Route path="/items" component={Result} />
 			</Switch>
 		</BrowserRouter>

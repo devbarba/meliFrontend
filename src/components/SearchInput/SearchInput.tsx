@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { searchState } from '../../recoil/atoms';
@@ -14,6 +14,7 @@ const SearchInput: React.FC = () => {
 	const handleSearchText = (newValue: string) => {
 		setSearchContext((prevState: any) => ({
 			...prevState,
+			isLoading: true,
 			searchText: newValue
 		}));
 	}
@@ -31,7 +32,7 @@ const SearchInput: React.FC = () => {
 		<>
 			<input
 				type="text"
-				className="nav-search"
+				className="nav-search relative p-2 flex-auto pl-3.5"
 				value={searchText}
 				onChange={(e: React.FormEvent<HTMLInputElement>) => {
 					handleSearchText(e.currentTarget.value)
@@ -39,7 +40,7 @@ const SearchInput: React.FC = () => {
 				placeholder="Nunca dejes de buscar"
 			/>
 
-			<div className="nav-search-append">
+			<div className="nav-search-append flex -ml-px">
 				<button type="submit" style={{outline: 'none'}} onClick={handleSearch}>
 					<img
 						srcSet={`

@@ -4,8 +4,8 @@ import React from 'react';
 
 const ContentContainer: React.FC = ({children}) => {
 	return (
-		<main className="content-container">
-			<div className="content-box bg-white p-4 mt-8 mb-8">
+		<main className="content-container flex w-9/12 px-0 mx-auto">
+			<div className="content-box w-full bg-white px-4 mb-8">
 				{children}
 			</div>
 		</main>
