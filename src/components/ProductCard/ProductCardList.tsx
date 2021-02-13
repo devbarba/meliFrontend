@@ -10,7 +10,7 @@ const ProductCardList: React.FC = () => {
 	return (
 		<>
 			{
-				searchResult?.items.length
+				searchResult?.items?.length
 					?
 						searchResult.items.map((item, idx) => {
 							const counter = idx;

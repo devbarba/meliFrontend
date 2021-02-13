@@ -1,16 +1,14 @@
-export interface itemInterfaceResult {
-    author: object;
-    item: object;
-}
-
-export interface itemResultInterface{
-	author?: {
+export interface IItemResult {
+    author?: {
 		name: string;
 		lastname: string;
 	};
     item?: {
 		id: string;
 		title: string;
+		category: {
+			id: string;
+		},
 		price: {
 			currency: string;
 			amount: string;
@@ -23,8 +21,7 @@ export interface itemResultInterface{
 	},
 }
 
-
-export interface ItemItemInterface{
+export interface IItem{
 	id: string;
 	title: string;
 	price: {

@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
-import { IAtomSearchStateInterface } from '../interfaces/atom.interface';
+import { IAtomSearchState } from '../interfaces/atom.interface';
 
-export const searchState: IAtomSearchStateInterface = atom({
+export const searchState: IAtomSearchState = atom({
 	key: 'searchState',
 	default: {
 		isLoading: false,

@@ -6,7 +6,7 @@ import Page from '../../components/Page/Page';
 import ProductCardList from '../../components/ProductCard/ProductCardList';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 import { GetItemByName } from '../../services/search.service';
-import { ISearchStateInterface } from '../../interfaces/atom.interface';
+import { ISearchState } from '../../interfaces/atom.interface';
 
 const Result: React.FC = () => {
 	const setErrorMessage = useSetRecoilState(errorState);
@@ -18,7 +18,7 @@ const Result: React.FC = () => {
 		try{
 			const { data: searchResponse } = await GetItemByName({ q: searchText ?? 'Auto' });
 
-			setSearchContext((prevState: ISearchStateInterface) => ({
+			setSearchContext((prevState: ISearchState) => ({
 				...prevState,
 				isLoading: false,
 				result: searchResponse

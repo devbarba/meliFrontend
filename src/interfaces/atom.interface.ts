@@ -1,4 +1,4 @@
-export interface IAtomSearchStateInterface {
+export interface IAtomSearchState {
 	key: string;
 	default?: {
 		isLoading: boolean;
@@ -10,7 +10,7 @@ export interface IAtomSearchStateInterface {
 	__cTag: any;
 }
 
-export interface ISearchStateInterface {
+export interface ISearchState {
 	isLoading?: boolean;
 	searchText?: string;
 	result?: {
@@ -30,7 +30,7 @@ export interface ISearchStateInterface {
 	};
 }
 
-export interface ISearchItemInterface{
+export interface ISearchItem{
 	id: string;
 	title: string;
 	price: {

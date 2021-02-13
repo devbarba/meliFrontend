@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Shipping1x from '../../assets/images/shipping.png';
 import Shipping2x from '../../assets/images/shipping@2x.png';
-import { ISearchItemInterface } from '../../interfaces/atom.interface';
+import { ISearchItem } from '../../interfaces/atom.interface';
 
 interface ProductCardProps {
-	item?: ISearchItemInterface
+	item?: ISearchItem
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 				<Link to={`/items/${item?.id}`}>
 					<img
 						className="w-full h-full"
-						src={item?.picture.replace('-I.jpg', '-O.webp')}
+						src={item?.picture.replace('-I.jpg', '-O.jpg')}
 						alt={item?.title}
 					/>
 				</Link>

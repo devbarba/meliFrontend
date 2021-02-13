@@ -4,7 +4,7 @@ import { getResult } from '../../recoil/selectors';
 
 const BreadCrumb: React.FC = () => {
 	const searchResult = useRecoilValue(getResult);
-	const categoriesLength = searchResult?.categories.length;
+	const categoriesLength = searchResult?.categories?.length;
 
 	return (
 		<div className="breadcrumb-container content-container flex w-9/12 px-0 mx-auto justify-start my-4">

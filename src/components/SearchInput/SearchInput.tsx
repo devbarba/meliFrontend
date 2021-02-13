@@ -5,7 +5,7 @@ import { searchState } from '../../recoil/atoms';
 import { getSearchText } from '../../recoil/selectors';
 import Search1x from '../../assets/images/search.png';
 import Search2x from '../../assets/images/search@2x.png';
-import { ISearchStateInterface } from '../../interfaces/atom.interface';
+import { ISearchState } from '../../interfaces/atom.interface';
 
 const SearchInput: React.FC = () => {
 	const history = useHistory();
@@ -13,14 +13,14 @@ const SearchInput: React.FC = () => {
 	const searchText = useRecoilValue(getSearchText);
 
 	const handleLoading = (newValue: boolean) => {
-		setSearchContext((prevState: ISearchStateInterface) => ({
+		setSearchContext((prevState: ISearchState) => ({
 			...prevState,
 			isLoading: newValue
 		}));
 	}
 
 	const handleSearchText = (newValue: string) => {
-		setSearchContext((prevState: ISearchStateInterface) => ({
+		setSearchContext((prevState: ISearchState) => ({
 			...prevState,
 			searchText: newValue
 		}));
