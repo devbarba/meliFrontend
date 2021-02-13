@@ -24,11 +24,7 @@ const Page: React.FC<PageProps> = ({content, breadCrumb}) => {
 
 			<ContentContainer>
 				{
-					isLoading
-						?
-							<Loading type="spinningBubbles" color="#FFE600" />
-						:
-							<></>
+					isLoading && <Loading type="spinningBubbles" color="#FFE600" />
 				}
 				{
 					!isLoading && !errorMessage

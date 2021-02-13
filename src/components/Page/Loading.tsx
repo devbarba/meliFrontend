@@ -6,10 +6,12 @@ interface Iloading{
 	color: string;
 }
 
-const Loading = ({ type, color }: Iloading ) => (
-	<div className="flex items-center justify-center my-4">
-		<ReactLoading type={type} color={color} height={'10%'} width={'10%'} />
-	</div>
-);
+const Loading: React.FC<Iloading> = ({ type, color }: Iloading ) => {
+	return(
+		<div className="flex items-center justify-center my-4">
+			<ReactLoading type={type} color={color} height={'10%'} width={'10%'} />
+		</div>
+	);
+};
 
 export default Loading;

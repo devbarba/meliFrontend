@@ -18,6 +18,7 @@ const SearchInput: React.FC = () => {
 			isLoading: newValue
 		}));
 	}
+
 	const handleSearchText = (newValue: string) => {
 		setSearchContext((prevState: ISearchStateInterface) => ({
 			...prevState,

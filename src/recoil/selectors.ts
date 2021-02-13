@@ -22,7 +22,7 @@ export const getItem = selector({
 	key: 'getItem',
 	get: ({ get }) => {
 		const search: ISearchStateInterface = get(searchState);
-		return search.item;
+		return search.item?.item;
 	},
 });
 
