@@ -153,6 +153,27 @@ body{
   }
 }
 
+@media(max-width:900px) {
+  .item-content{
+    flex-direction: column;
+  }
+
+  .item-details{
+    order: 0 !important;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .item-picture{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* ! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

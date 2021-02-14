@@ -116,6 +116,7 @@ body{
 	cursor: pointer;
 	outline: 0;
 }
+
 @media(max-width:768px) {
 	/* Content Result */
 	.content-container{
@@ -145,6 +146,27 @@ body{
 		display: none !important;
 	}
 
+}
+
+@media(max-width:900px) {
+	.item-content{
+		flex-direction: column;
+	}
+
+	.item-details{
+		order: 0 !important;
+		flex-direction: column;
+		display: flex;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+
+	.item-picture{
+		order: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
 @import 'tailwindcss/base';
